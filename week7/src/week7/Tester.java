@@ -3,7 +3,13 @@ package week7;
 public class Tester {
 	public static void main(String[] args) {
 		Dog dog = new Dog();
-		Animal animal = dog;
+		Cat cat = new Cat();
+		Animal animal;
 		
+		animal = dog;
+		System.out.println(dog.sound());
+		
+		animal = cat;
+		System.out.println(animal.sound());
 	}
 }

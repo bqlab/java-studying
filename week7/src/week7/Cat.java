@@ -1,7 +1,8 @@
 package week7;
 
-public class Cat extends Animal {
-	public int what() {
-		return 1;
+public class Cat implements Animal {
+	public String sound( ) {
+		return "³Ä¿Ë";
 	}
+	public 
 }

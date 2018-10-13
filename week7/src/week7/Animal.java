@@ -1,7 +1,6 @@
 package week7;
 
-public class Animal {
-	public String sound() {
-		return "¼Ò¸®³¿";
-	}
+public abstract class Animal {
+	public abstract String sound();
+	public abstract String toGet();
 }
