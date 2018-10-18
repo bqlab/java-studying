@@ -17,13 +17,15 @@ public class Bank {
 			System.exit(0);
 			break;
 		case 1:
-			int a, b, c = 0;
-			double d = 0;
+			int a, b, c;
+			double d;
 			System.out.println("고객번호: ");
 			a = scanner.nextInt();
 			System.out.println("최초입금액: ");
 			b = scanner.nextInt();
 			System.out.println("마이너스잔고: ");
+			c = scanner.nextInt();
+			System.out.println("마일리지: ");
 			d = scanner.nextDouble();
 			register(a, b, c, d);
 			break;

@@ -437,3 +437,16 @@ Java Model Exception: Java Model Status [withdraw() [in MinusAccount [in [Workin
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
 !SUBENTRY 1 org.eclipse.jdt.core 4 969 2018-10-19 02:46:32.643
 !MESSAGE withdraw() [in MinusAccount [in [Working copy] MinusAccount.java [in <default> [in src [in week5-1]]]]] does not exist
+
+!ENTRY org.eclipse.eclemma.core 4 5013 2018-10-19 03:22:05.335
+!MESSAGE Error while dumping coverage data (code 5013).
+!STACK 0
+java.net.SocketException: Connection reset
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.FilterInputStream.read(Unknown Source)
+	at org.jacoco.core.data.ExecutionDataReader.read(ExecutionDataReader.java:83)
+	at org.eclipse.eclemma.internal.core.MemoryExecutionDataSource.readFrom(MemoryExecutionDataSource.java:68)
+	at org.eclipse.eclemma.internal.core.launching.AgentServer.run(AgentServer.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
