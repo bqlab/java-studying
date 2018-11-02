@@ -1,5 +1,8 @@
 package week11;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPasswordField;
@@ -24,6 +27,17 @@ public class MyFrame extends JFrame {
 		for(int i = 0; i<12;i++) {
 			add(buttons[i]);
 		}
+		
+		//ClickProcess c = new ClickProcess();
+		//buttons[11].addActionListener(c);
+		
+		buttons[11].addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 	}
 	
 	public static void main(String[] argv){
