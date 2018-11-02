@@ -1,10 +1,18 @@
 package week11;
 
+import javax.swing.JFrame;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 public class Tester {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public void main() {
+		JFrame jframe = new JFrame();
+		JTextField button = new JTextField("press me");
+		
+		jframe.setSize(500, 300);
+		jframe.setTitle("Good Morning");
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setVisible(true);
 	}
-
 }
