@@ -10,7 +10,7 @@ public class Tester {
 			accounts[i].setBalance(new Random().nextInt(99));
 			System.out.println(accounts[i].getBalance());
 		}
-
+tlqkf
 		bubbleSort();
 		System.out.println("Á¤·ÄÈÄ");
 		for (int i = 0; i < accounts.length; i++) {
