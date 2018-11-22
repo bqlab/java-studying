@@ -6,6 +6,9 @@ public class Account {
 	public void withraw(int a) {
 		balance = balance - a;
 	}
+	public void setBalance(int a) {
+		balance = a;
+	}
 	public int getBalance() {
 		return balance;
 	}
