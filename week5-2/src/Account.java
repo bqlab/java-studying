@@ -4,7 +4,10 @@ public class Account {
 		balance = balance + a;
 	}
 	public void withraw(int a) {
-		balance = balance - a;
+		if (a < balance)
+			balance = balance - a;
+		else
+			throw new NumberFormatException();
 	}
 	public void setBalance(int a) {
 		balance = a;
