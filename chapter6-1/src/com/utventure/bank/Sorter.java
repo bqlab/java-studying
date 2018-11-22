@@ -1,6 +1,6 @@
 package com.utventure.bank;
 	
-public class Sorter extends BubbleSort{
+public class Sorter implements BubbleSort {
 	public int[] numbers = new int[10];
 	
 	public Sorter(int[] numbers) {
