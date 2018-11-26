@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Stack;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,10 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class Tester extends JFrame implements ActionListener {	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	private static Stack<Integer> stack;
+	private static boolean operating;
+	private static int op1, op2;
+	
 	JButton [] buttons;
 	JLabel display;
 	public Tester() {
@@ -28,6 +30,11 @@ public class Tester extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		display.setText( arg0.getActionCommand() );
+		stack.push(Integer.parseInt(arg0.getActionCommand()));
+		if(arg0.getActionCommand().equals("+")) {
+			op1 = stack.pop();
+			operating = true;
+		}
 	}
 	private void makeUI() {
 		JPanel panel = new JPanel();
