@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 import javax.swing.JButton;
@@ -12,14 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+@SuppressWarnings("serial")
 public class Tester extends JFrame implements ActionListener {	
-	private static final long serialVersionUID = 1L;
-	private static Stack<Integer> stack;
-	private static boolean operating;
-	private static int op1, op2;
-	
 	JButton [] buttons;
 	JLabel display;
+	Stack<String> eq;
+	int a = 0, b = 0, flag = 1;
+	
 	public Tester() {
 		setTitle("12 buttons");
 		setSize( 300, 400 );
@@ -28,21 +28,44 @@ public class Tester extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		display.setText( arg0.getActionCommand() );
-		stack.push(Integer.parseInt(arg0.getActionCommand()));
-		if(arg0.getActionCommand().equals("+")) {
-			op1 = stack.pop();
-			operating = true;
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JButton button = (JButton) e.getSource();
+		String s = button.getText();
+		display.setText(s);
+		
+		if(s.equals("=")) {
+			try {
+				b = Integer.parseInt(eq.pop());
+				display.setText(Integer.toString(a+b));
+				eq.clear();
+				a = b = 0;
+				flag = 1;
+			} catch (EmptyStackException e1) {
+				display.setText("입력 오류");
+				eq.clear();
+			}
+		}
+		else if (s.equals("+")) {
+			try {
+				a = Integer.parseInt(eq.pop());
+			} catch (EmptyStackException e1) {
+				display.setText("입력 오류");
+				eq.clear();
+			}
+		}
+		else {
+			eq.push(s);
 		}
 	}
 	private void makeUI() {
+		eq = new Stack<String>();
 		JPanel panel = new JPanel();
 		buttons = new JButton[12];
-		display = new JLabel("0", SwingConstants.RIGHT);
-		display.setFont( new Font("�޸տ�ü",Font.BOLD, 32));
-		display.setBackground(Color.green);
-		display.setOpaque(true);
+		display = new JLabel("계산기", SwingConstants.RIGHT);
+		display.setFont( new Font("굴림",Font.BOLD, 32));
+		display.setBackground(Color.green); 
+		display.setOpaque(true);  
 		panel.setLayout(new GridLayout( 4, 3 ));
 		setLayout(new BorderLayout());
 		for(int i=1; i<10; i++ ) {
